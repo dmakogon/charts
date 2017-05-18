@@ -1,0 +1,32 @@
+# Default values for neo4j.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+Name: neo4j
+Component: "neo4j"
+replicaCount: 1
+Image: "neo4j"
+ImageTag: "3.2"
+ImagePullPolicy: "Always"
+
+#service:
+#  name: neo4jdb
+#  type: LoadBalancer
+
+# Instance resources
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+neo4j:
+  Neo4jAuth: "none"
+
+# Persistence information
+persistence:
+  enabled: true
+  storageClass: fast
+  accessMode: ReadWriteOnce
+  size: 128Gi
